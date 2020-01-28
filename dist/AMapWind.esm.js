@@ -1,9 +1,9 @@
 /*!
  * author: sakitam-fdd <smilefdd@gmail.com> 
  * wind-layer v0.1.1
- * build-time: 2019-11-30 21:42
+ * build-time: 2020-1-28 14:22
  * LICENSE: MIT
- * (c) 2017-2019 https://sakitam-fdd.github.io/wind-layer
+ * (c) 2017-2020 https://sakitam-fdd.github.io/wind-layer
  */
 /* eslint-disable */
 
@@ -108,8 +108,6 @@ var Windy = function (params) {
         case "2,3":
           vComp = record;
           break;
-        default:
-
       }
     });
 

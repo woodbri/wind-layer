@@ -1,14 +1,14 @@
 /*!
  * author: sakitam-fdd <smilefdd@gmail.com> 
  * wind-layer v0.1.1
- * build-time: 2019-11-30 21:42
+ * build-time: 2020-1-28 14:22
  * LICENSE: MIT
- * (c) 2017-2019 https://sakitam-fdd.github.io/wind-layer
+ * (c) 2017-2020 https://sakitam-fdd.github.io/wind-layer
  */
 import { Map } from 'ol';
 import { Image } from 'ol/layer';
 import { ImageCanvas } from 'ol/source';
-import { transformExtent } from 'ol/proj';
+import { transformExtent, get } from 'ol/proj';
 
 /* eslint-disable */
 
@@ -113,8 +113,6 @@ var Windy = function (params) {
         case "2,3":
           vComp = record;
           break;
-        default:
-
       }
     });
 
@@ -841,7 +839,7 @@ var OlWindy = /*@__PURE__*/(function (ImageLayer) {
   OlWindy.prototype.appendTo = function appendTo (map) {
     if (map && map instanceof Map) {
       this.set('originMap', map);
-      this.getSource().projection_ = this._getProjectionCode();
+      this.getSource().projection_ = get(this._getProjectionCode());
       map.addLayer(this);
     } else {
       throw new Error('not map object');

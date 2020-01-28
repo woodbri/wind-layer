@@ -1,7 +1,7 @@
 import { Map } from 'ol';
 import { Image as ImageLayer } from 'ol/layer';
 import { ImageCanvas } from 'ol/source';
-import { transformExtent } from 'ol/proj';
+import { get as getProj, transformExtent } from 'ol/proj';
 
 import Windy from '../windy/windy';
 import { createCanvas, getDirection, getSpeed } from '../helper';
@@ -201,7 +201,7 @@ class OlWindy extends ImageLayer {
   appendTo (map) {
     if (map && map instanceof Map) {
       this.set('originMap', map);
-      this.getSource().projection_ = this._getProjectionCode();
+      this.getSource().projection_ = getProj(this._getProjectionCode());
       map.addLayer(this);
     } else {
       throw new Error('not map object');

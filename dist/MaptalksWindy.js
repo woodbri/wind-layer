@@ -1,15 +1,15 @@
 /*!
  * author: sakitam-fdd <smilefdd@gmail.com> 
  * wind-layer v0.1.1
- * build-time: 2019-11-30 21:42
+ * build-time: 2020-1-28 14:22
  * LICENSE: MIT
- * (c) 2017-2019 https://sakitam-fdd.github.io/wind-layer
+ * (c) 2017-2020 https://sakitam-fdd.github.io/wind-layer
  */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('maptalks')) :
   typeof define === 'function' && define.amd ? define(['maptalks'], factory) :
   (global = global || self, global.MaptalksWindy = factory(global.maptalks));
-}(this, function (maptalks) { 'use strict';
+}(this, (function (maptalks) { 'use strict';
 
   /* eslint-disable */
 
@@ -114,8 +114,6 @@
           case "2,3":
             vComp = record;
             break;
-          default:
-
         }
       });
 
@@ -838,5 +836,5 @@
 
   return MaptalksWindy;
 
-}));
+})));
 //# sourceMappingURL=MaptalksWindy.js.map

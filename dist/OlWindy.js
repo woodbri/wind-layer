@@ -1,15 +1,15 @@
 /*!
  * author: sakitam-fdd <smilefdd@gmail.com> 
  * wind-layer v0.1.1
- * build-time: 2019-11-30 21:42
+ * build-time: 2020-1-28 14:22
  * LICENSE: MIT
- * (c) 2017-2019 https://sakitam-fdd.github.io/wind-layer
+ * (c) 2017-2020 https://sakitam-fdd.github.io/wind-layer
  */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('ol'), require('ol/layer'), require('ol/source'), require('ol/proj')) :
   typeof define === 'function' && define.amd ? define(['ol', 'ol/layer', 'ol/source', 'ol/proj'], factory) :
   (global = global || self, global.OlWindy = factory(global.ol, global.ol.layer, global.ol.source, global.ol.proj));
-}(this, function (ol, layer, source, proj) { 'use strict';
+}(this, (function (ol, layer, source, proj) { 'use strict';
 
   /* eslint-disable */
 
@@ -114,8 +114,6 @@
           case "2,3":
             vComp = record;
             break;
-          default:
-
         }
       });
 
@@ -842,7 +840,7 @@
     OlWindy.prototype.appendTo = function appendTo (map) {
       if (map && map instanceof ol.Map) {
         this.set('originMap', map);
-        this.getSource().projection_ = this._getProjectionCode();
+        this.getSource().projection_ = proj.get(this._getProjectionCode());
         map.addLayer(this);
       } else {
         throw new Error('not map object');
@@ -974,5 +972,5 @@
 
   return OlWindy;
 
-}));
+})));
 //# sourceMappingURL=OlWindy.js.map
